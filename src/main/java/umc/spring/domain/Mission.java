@@ -23,6 +23,9 @@ public class Mission extends BaseEntity {
 
     private Integer point;
 
+    @Column(nullable = false, length = 500)
+    private String missionSpec;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
@@ -31,3 +34,5 @@ public class Mission extends BaseEntity {
     private List<DoMission> doMissionList = new ArrayList<>();
 
 }
+
+
