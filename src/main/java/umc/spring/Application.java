@@ -25,7 +25,7 @@ public class Application {
 	public CommandLineRunner run(ApplicationContext context) {
 		return args -> {
 			StoreQueryService storeService = context.getBean(StoreQueryService.class);
-			//MemberQueryService memberService = context.getBean(MemberQueryService.class);
+			MemberQueryService memberService = context.getBean(MemberQueryService.class);
 			MissionQueryService missionService = context.getBean(MissionQueryService.class);
 
 			String name = "요아정";
@@ -39,8 +39,7 @@ public class Application {
 			storeService.findStoresByNameAndScore(name, rating)
 					.forEach(System.out::println);
 
-//			Long id = 1L;
-//			memberService.findMember(id);
+
 
 			Long userId = 1L;
 			MissionStatus missionStatus = MissionStatus.PROGRESS;
@@ -58,6 +57,9 @@ public class Application {
 			System.out.println("Progress: " + missionStatus);
 
 			missionService.findDoMissionBymember(userId, missionStatus)
+					.forEach(System.out::println);
+
+			memberService.findMemberWithId(userId)
 					.forEach(System.out::println);
 		};
 }}

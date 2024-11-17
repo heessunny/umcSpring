@@ -16,12 +16,17 @@ import java.util.Optional;
 public class MemberQueryServiceImpl implements MemberQueryService{
 
     private final MemberRepository memberRepository;
-
-
     @Override
-    public Optional<Member> findMember(Long id) {
-        return memberRepository.findById(id);
+    public List<Member> findMemberWithId(Long memberId) {
+        List<Member> filteredMember = memberRepository.findMembersWithId(memberId);
+
+        filteredMember.forEach(member -> System.out.println("Member: " + member));
+
+        return filteredMember;
     }
+
+
+
 
 
 }
