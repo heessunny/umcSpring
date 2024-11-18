@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import umc.spring.domain.enums.MemberStatus;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.service.MemberQueryService;
+import umc.spring.service.DoMissionQueryService;
 import umc.spring.service.MissionQueryService;
 import umc.spring.service.StoreQueryService;
 
@@ -26,6 +26,7 @@ public class Application {
 		return args -> {
 			StoreQueryService storeService = context.getBean(StoreQueryService.class);
 			MemberQueryService memberService = context.getBean(MemberQueryService.class);
+			DoMissionQueryService doMissionService = context.getBean(DoMissionQueryService.class);
 			MissionQueryService missionService = context.getBean(MissionQueryService.class);
 
 			String name = "요아정";
@@ -41,14 +42,14 @@ public class Application {
 
 
 
-			Long userId = 1L;
+			Long userId = 2L;
 			MissionStatus missionStatus = MissionStatus.PROGRESS;
 
 			System.out.println("Executing findProgressMission with parameters:");
 			System.out.println("MemberId: " + userId);
 			System.out.println("Progress: " + missionStatus);
 
-			missionService.findDoMissionBymember(userId, missionStatus)
+			doMissionService.findDoMissionBymember(userId, missionStatus)
 					.forEach(System.out::println);
 
 			missionStatus = MissionStatus.COMPLETE;
@@ -56,10 +57,24 @@ public class Application {
 			System.out.println("MemberId: " + userId);
 			System.out.println("Progress: " + missionStatus);
 
-			missionService.findDoMissionBymember(userId, missionStatus)
+			doMissionService.findDoMissionBymember(userId, missionStatus)
 					.forEach(System.out::println);
 
 			memberService.findMemberWithId(userId)
 					.forEach(System.out::println);
+
+			Long regionId =1L;
+
+			System.out.println("Executing findMission with parameters:");
+			System.out.println("MemberId: " + userId);
+			System.out.println("regionId: " + regionId);
+			missionService.findMissionByregion(regionId, userId)
+					.forEach(System.out::println);
+
+			Long count = missionService.getMissionCount(regionId, userId);
+			System.out.println("Count: " + count);
+
 		};
+
+
 }}

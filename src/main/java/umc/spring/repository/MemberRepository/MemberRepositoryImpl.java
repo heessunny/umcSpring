@@ -4,8 +4,8 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import umc.spring.domain.Member;
-import umc.spring.domain.QMember;
+import umc.spring.domain.*;
+import umc.spring.domain.mapping.QDoMission;
 
 
 import java.util.List;
@@ -15,6 +15,7 @@ import java.util.List;
 public class MemberRepositoryImpl implements MemberRepositoryCustom{
     private final JPAQueryFactory jpaQueryFactory;
     private final QMember member = QMember.member;
+
 
     public List<Member> findMembersWithId(Long id) {
         BooleanBuilder predicate = new BooleanBuilder();
@@ -28,4 +29,6 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
                 .where(predicate)
                 .fetch();
     }
+
+
 }

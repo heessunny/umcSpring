@@ -1,4 +1,4 @@
-package umc.spring.repository.MissionRepository;
+package umc.spring.repository.DoMissionRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class MissionRepositoryImpl implements MissionRepositoryCustom {
+public class DoMissionRepositoryImpl implements DoMissionRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
     private final QDoMission doMission = QDoMission.doMission;
 

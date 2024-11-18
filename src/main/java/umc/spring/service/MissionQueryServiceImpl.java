@@ -1,15 +1,14 @@
 package umc.spring.service;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import umc.spring.domain.enums.MissionStatus;
-import umc.spring.domain.mapping.DoMission;
-import umc.spring.repository.MissionRepository.MissionRepository;
+import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
+import umc.spring.repository.MemberRepository.MemberRepository;
+import umc.spring.repository.Mission.MissionRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,18 +16,19 @@ import java.util.Optional;
 public class MissionQueryServiceImpl implements MissionQueryService {
 
     private final MissionRepository missionRepository;
-
     @Override
-    public Optional<DoMission> findDoMission(Long id) {
-        return Optional.empty();
+    public List<Mission> findMissionByregion(Long regionId, Long userId) {
+        List<Mission> filteredMission = missionRepository.findMissionCountByRegionAndUser(regionId,userId);
+
+        filteredMission.forEach(mission -> System.out.println("Mission: " + mission));
+
+        return filteredMission;
     }
 
-    @Override
-    public List<DoMission> findDoMissionBymember(Long userId, MissionStatus status) {
-        List<DoMission> filteredMissions = missionRepository.findMissionWithMemberIdAndStatus(userId, status);
-        filteredMissions.forEach(mission -> System.out.println("progress Mission: " + mission));
 
-        return filteredMissions;
+    @Override
+    public Long getMissionCount(Long regionId, Long userId) {
+        return missionRepository.countMissionCountByRegionAndUser(regionId, userId);
     }
 
 
