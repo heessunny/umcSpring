@@ -1,5 +1,6 @@
 package umc.spring.service;
 
+import org.springframework.data.domain.Page;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.DoMission;
 
@@ -10,5 +11,5 @@ public interface DoMissionQueryService {
 
     Optional<DoMission> findDoMission(Long id);
 
-    List<DoMission> findDoMissionBymember(Long memberId, MissionStatus status);
+    Page<DoMission> findDoMissionBymember(Long memberId, MissionStatus status);
 }
