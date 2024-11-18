@@ -7,10 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import umc.spring.domain.enums.MissionStatus;
-import umc.spring.service.MemberQueryService;
-import umc.spring.service.DoMissionQueryService;
-import umc.spring.service.MissionQueryService;
-import umc.spring.service.StoreQueryService;
+import umc.spring.service.*;
 
 
 @SpringBootApplication
@@ -28,6 +25,7 @@ public class Application {
 			MemberQueryService memberService = context.getBean(MemberQueryService.class);
 			DoMissionQueryService doMissionService = context.getBean(DoMissionQueryService.class);
 			MissionQueryService missionService = context.getBean(MissionQueryService.class);
+			ReviewQueryService reviewService = context.getBean(ReviewQueryService.class);
 
 			String name = "요아정";
 			Float rating = 4.0f;
@@ -74,7 +72,25 @@ public class Application {
 			Long count = missionService.getMissionCount(regionId, userId);
 			System.out.println("Count: " + count);
 
+
+
+			Long storeId = 1L;
+			String content = "메에에ㅔ에에에에ㅔ에에에에ㅔ에에";
+			Float score = 5.0f;
+
+
+			System.out.println("User ID: " + userId);
+			System.out.println("Store ID: " + storeId);
+			System.out.println("Title: " + content);
+			System.out.println("Score: " + score);
+
+
+			reviewService.createReview(userId, storeId, score, content);
+
+
 		};
+
+
 
 
 }}

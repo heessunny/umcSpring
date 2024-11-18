@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MissionQueryService {
     List<Mission> findMissionByregion(Long regionId, Long userId);
-    public Long getMissionCount(Long regionId, Long userId);
+    Long getMissionCount(Long regionId, Long userId);
 }
