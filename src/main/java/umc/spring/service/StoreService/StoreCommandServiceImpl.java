@@ -11,6 +11,8 @@ import umc.spring.repository.RegionRepository.RegionRepository;
 import umc.spring.repository.StoreRepository.StoreRepository;
 import umc.spring.web.dto.StoreRequestDTO;
 
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -30,4 +32,11 @@ public class StoreCommandServiceImpl implements StoreCommandService {
         newStore.setRegion(region);
         return storeRepository.save(newStore);
     }
+
+    @Override
+    public Optional<Store> findStoreById(Long storeId) {
+        return storeRepository.findById(storeId);
+    }
 }
+
+
