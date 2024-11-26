@@ -22,12 +22,12 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final StoreRepository storeRepository;
 
     @Override
-    public Review registerReview(ReviewRequestDTO.CreateReviewDto request) {
+    public Review registerReview(Long id, ReviewRequestDTO.CreateReviewDto request) {
 
         Review newReview = ReviewConverter.toReview(request);
 
 
-        Store store = storeRepository.findById(request.getStoreId())
+        Store store = storeRepository.findById(id)
                 .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));
                 newReview.setStore(store);
 

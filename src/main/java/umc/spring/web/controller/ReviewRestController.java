@@ -1,28 +1,28 @@
 package umc.spring.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPlayload.ApiResponse;
 import umc.spring.converter.ReviewConverter;
 import umc.spring.domain.Review;
 import umc.spring.service.ReviewService.ReviewCommandService;
+import umc.spring.validation.annotation.ExistStore;
 import umc.spring.web.dto.ReviewRequestDTO;
 import umc.spring.web.dto.ReviewResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/store/reviews")
+@RequestMapping("/stores")
 public class ReviewRestController {
 
     private final ReviewCommandService reviewCommandService;
 
-    @PostMapping("/")
-    public ApiResponse<ReviewResponseDTO.CreateReviewResultDTO> join(@RequestBody @Valid ReviewRequestDTO.CreateReviewDto request){
-        Review review = reviewCommandService.registerReview(request);
+    @PostMapping("/{store_id}/reviews")
+    public ApiResponse<ReviewResponseDTO.CreateReviewResultDTO> reviewCommandService(@PathVariable("store_id") @ExistStore Long storeId, @RequestBody @Valid ReviewRequestDTO.CreateReviewDto request){
+
+        Review review = reviewCommandService.registerReview(storeId, request);
         return ApiResponse.onSuccess(ReviewConverter.toCreateReviewResultDTO(review));
     }
 }

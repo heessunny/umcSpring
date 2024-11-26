@@ -8,8 +8,7 @@ import umc.spring.validation.annotation.ExistStore;
 
 import java.util.List;
 
-public class ReviewRequestDTO {
-
+public class MissionRequestDTO {
     @Getter
     public static class CreateReviewDto{
 
@@ -19,9 +18,9 @@ public class ReviewRequestDTO {
         String content;
         @NotEmpty
         List<String> imageList;
+        @ExistStore
+        Long storeId;
 
 
     }
-
 }
-

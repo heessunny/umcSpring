@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ReviewCommandService {
 
-    Review registerReview(ReviewRequestDTO.CreateReviewDto request);
+    Review registerReview(Long id, ReviewRequestDTO.CreateReviewDto request);
 
 
 }
