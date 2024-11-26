@@ -1,25 +1,24 @@
 package umc.spring.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import umc.spring.validation.annotation.ExistStore;
-
-import java.util.List;
+import java.time.LocalDate;
 
 public class MissionRequestDTO {
     @Getter
-    public static class CreateReviewDto{
+    public static class CreateMissionDto{
 
-        @NotNull
-        Float score;
-        @NotBlank
-        String content;
-        @NotEmpty
-        List<String> imageList;
-        @ExistStore
-        Long storeId;
+
+
+        Integer point;
+
+        Integer minimumAmount;
+
+        String Type;
+
+        LocalDate deadline;
+
 
 
     }

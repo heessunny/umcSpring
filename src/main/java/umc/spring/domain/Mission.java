@@ -5,6 +5,7 @@ import lombok.*;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.mapping.DoMission;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,13 @@ public class Mission extends BaseEntity {
 
     private Integer point;
 
-    @Column(nullable = false, length = 500)
+    private String type;
+
     private String missionSpec;
 
+    private LocalDate deadline;
+
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
