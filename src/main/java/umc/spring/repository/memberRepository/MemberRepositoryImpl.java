@@ -1,11 +1,10 @@
-package umc.spring.repository.MemberRepository;
+package umc.spring.repository.memberRepository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import umc.spring.domain.*;
-import umc.spring.domain.mapping.QDoMission;
 
 
 import java.util.List;

@@ -77,6 +77,8 @@ public class Application {
 			Long storeId = 1L;
 			String content = "메에에ㅔ에에에에ㅔ에에에에ㅔ에에";
 			Float score = 5.0f;
+			userId = 1L;
+
 
 
 			System.out.println("User ID: " + userId);

@@ -3,9 +3,7 @@ package umc.spring.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
-import umc.spring.repository.MemberRepository.MemberRepository;
 import umc.spring.repository.Mission.MissionRepository;
 
 import java.util.List;

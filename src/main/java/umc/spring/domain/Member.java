@@ -2,6 +2,9 @@ package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.MemberStatus;
@@ -15,6 +18,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -48,15 +53,16 @@ public class Member extends BaseEntity {
 
     private LocalDate birth;
 
-    @Column(nullable = false, length = 50)
+    //@Column(nullable = false, length = 50)
     private String email;
 
+    @ColumnDefault("0")
     private Integer point;
 
-    @Column(nullable = false, length = 250)
+    //@Column(nullable = false, length = 250)
     private String profileImg;
 
-    @Column(nullable = false, length = 40)
+    //@Column(nullable = true, length = 40)
     private String phone;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
