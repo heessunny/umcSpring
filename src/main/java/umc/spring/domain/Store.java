@@ -33,9 +33,11 @@ public class Store extends BaseEntity {
     private List<Mission> missionList = new ArrayList<>();
 
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
     private Region region;
+
 
     @Override
     public String toString() {

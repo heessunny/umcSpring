@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.service.*;
+import umc.spring.service.StoreService.StoreQueryService;
 
 
 @SpringBootApplication
