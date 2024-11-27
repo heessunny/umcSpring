@@ -1,4 +1,4 @@
-package umc.spring.apiPlayload.exception;
+package umc.spring.apiPayload.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import umc.spring.apiPlayload.ApiResponse;
-import umc.spring.apiPlayload.code.ErrorReasonDTO;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.ApiResponse;
+import umc.spring.apiPayload.code.ErrorReasonDTO;
+import umc.spring.apiPayload.code.status.ErrorStatus;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

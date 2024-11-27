@@ -31,6 +31,7 @@ public class MemberConverter {
                 gender = Gender.Female;
                 break;
         }
+
         LocalDate birthDate = LocalDate.of(
                 request.getBirthYear(),
                 request.getBirthMonth(),

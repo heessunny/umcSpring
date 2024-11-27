@@ -1,10 +1,9 @@
 package umc.spring.web.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import umc.spring.apiPlayload.ApiResponse;
+import umc.spring.apiPayload.ApiResponse;
 import umc.spring.converter.ReviewConverter;
 import umc.spring.domain.Review;
 import umc.spring.service.ReviewService.ReviewCommandService;

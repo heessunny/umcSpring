@@ -2,8 +2,8 @@ package umc.spring.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
-import umc.spring.apiPlayload.exception.handler.RegionHandler;
+import umc.spring.apiPayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.exception.handler.RegionHandler;
 import umc.spring.converter.StoreConverter;
 import umc.spring.domain.Region;
 import umc.spring.domain.Store;

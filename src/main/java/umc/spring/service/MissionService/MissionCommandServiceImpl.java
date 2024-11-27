@@ -2,8 +2,8 @@ package umc.spring.service.MissionService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
-import umc.spring.apiPlayload.exception.handler.StoreHandler;
+import umc.spring.apiPayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.exception.handler.StoreHandler;
 import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Store;

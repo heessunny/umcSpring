@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.service.StoreService.StoreCommandService;
 import umc.spring.validation.annotation.ExistStore;
 

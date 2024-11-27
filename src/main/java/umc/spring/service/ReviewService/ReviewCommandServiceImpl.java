@@ -2,12 +2,9 @@ package umc.spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
-import umc.spring.apiPlayload.exception.handler.RegionHandler;
-import umc.spring.apiPlayload.exception.handler.StoreHandler;
+import umc.spring.apiPayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.exception.handler.StoreHandler;
 import umc.spring.converter.ReviewConverter;
-import umc.spring.converter.StoreConverter;
-import umc.spring.domain.Region;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
 import umc.spring.repository.ReviewRepository.ReviewRepository;

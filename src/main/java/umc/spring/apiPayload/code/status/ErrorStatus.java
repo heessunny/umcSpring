@@ -1,10 +1,10 @@
-package umc.spring.apiPlayload.code.status;
+package umc.spring.apiPayload.code.status;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import umc.spring.apiPlayload.code.BaseErrorCode;
-import umc.spring.apiPlayload.code.ErrorReasonDTO;
+import umc.spring.apiPayload.code.BaseErrorCode;
+import umc.spring.apiPayload.code.ErrorReasonDTO;
 
 @Getter
 @AllArgsConstructor
@@ -28,6 +28,9 @@ public enum ErrorStatus implements BaseErrorCode {
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "CATEGORY4001", "카테고리가 없습니다."),
     REGION_NOT_FOUND(HttpStatus.NOT_FOUND, "REGION4001", "지역이 없습니다."),
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE4001", "가게가 없습니다."),
+
+    MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION4001", "미션이 없습니다."),
+    DOMISSION_ALREADY_FOUND(HttpStatus.NOT_FOUND, "DOMISSION4001", "이미 진행중인 미션 입니다."),
 
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
 

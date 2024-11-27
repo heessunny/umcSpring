@@ -8,11 +8,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.DoMission;
 import umc.spring.domain.mapping.QDoMission;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -45,4 +48,6 @@ public class DoMissionRepositoryImpl implements DoMissionRepositoryCustom {
 
         return new PageImpl<>(content, pageable, total); // Page 객체로 반환
     }
+
+
 }

@@ -39,4 +39,10 @@ public class DoMission extends BaseEntity {
                 ", status=" + status +
                 '}';
     }
+
+    public DoMission(MissionStatus status, Member member, Mission mission) {
+        this.status = status;
+        this.member = member;
+        this.mission = mission;
+    }
 }

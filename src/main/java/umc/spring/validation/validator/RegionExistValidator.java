@@ -4,8 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import umc.spring.apiPlayload.code.status.ErrorStatus;
-import umc.spring.domain.Region;
+import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.service.RegionService.RegionService;
 import umc.spring.validation.annotation.ExistRegion;
 
