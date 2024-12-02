@@ -1,5 +1,6 @@
 package umc.spring.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.domain.Member;
 import umc.spring.domain.Review;
 import umc.spring.domain.enums.Gender;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MemberConverter {
 
@@ -51,11 +53,26 @@ public class MemberConverter {
 
     }
 
-    public static MemberResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review) {
-        return null;
+    public static MemberResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review){
+        return MemberResponseDTO.ReviewPreViewDTO.builder()
+                .ownerNickname(review.getStore().getName())
+                .score(review.getScore())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .body(review.getContent())
+                .build();
     }
+    public static MemberResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(Page<Review> reviewList){
 
-    public static MemberResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(List<Review> reviewList) {
-        return null;
+        List<MemberResponseDTO.ReviewPreViewDTO> reviewPreViewDTOList = reviewList.stream()
+                .map(MemberConverter::reviewPreViewDTO).collect(Collectors.toList());
+
+        return MemberResponseDTO.ReviewPreViewListDTO.builder()
+                .isLast(reviewList.isLast())
+                .isFirst(reviewList.isFirst())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(reviewPreViewDTOList.size())
+                .reviewList(reviewPreViewDTOList)
+                .build();
     }
 }

@@ -10,6 +10,7 @@ import umc.spring.domain.enums.MissionStatus;
 import umc.spring.service.*;
 import umc.spring.service.ReviewService.ReviewQueryService;
 import umc.spring.service.StoreService.StoreQueryService;
+import umc.spring.service.MemberService.MemberQueryService;
 
 
 @SpringBootApplication

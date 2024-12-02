@@ -31,7 +31,7 @@ public class StoreConverter {
 
     public static StoreResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review){
         return StoreResponseDTO.ReviewPreViewDTO.builder()
-                .ownerNickname(review.getMember().getName())
+                .storeName(review.getMember().getName())
                 .score(review.getScore())
                 .createdAt(review.getCreatedAt().toLocalDate())
                 .body(review.getContent())

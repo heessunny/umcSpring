@@ -39,7 +39,7 @@ public class StoreResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ReviewPreViewDTO {
-        String ownerNickname;
+        String storeName;
         Float score;
         String body;
         LocalDate createdAt;
