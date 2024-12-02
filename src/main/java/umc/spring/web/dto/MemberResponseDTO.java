@@ -44,4 +44,30 @@ public class MemberResponseDTO {
         String body;
         LocalDate createdAt;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreViewListDTO {
+        List<MemberResponseDTO.MissionPreViewDTO> missio .;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreViewDTO {
+        Integer minimumAmount;
+        Integer point;
+        String type;
+        String missionSpec;
+        LocalDate deadline;
+        LocalDate createdAt;
+    }
 }
