@@ -14,4 +14,5 @@ public interface MemberQueryService {
 
     Page<Review> getReviews(Long MemberId, Integer page);
     Page<DoMission> getProgressMission(Long MemberId, Integer page);
+
 }

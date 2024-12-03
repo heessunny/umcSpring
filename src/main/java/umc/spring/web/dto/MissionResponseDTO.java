@@ -31,6 +31,15 @@ public class MissionResponseDTO {
     }
 
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CompleteMissionResultDTO{
+        Long doMissionId;
+        MissionStatus status;
+        LocalDateTime createdAt;
+    }
 
 
 }

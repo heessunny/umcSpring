@@ -48,4 +48,6 @@ public class MemberQueryServiceImpl implements MemberQueryService {
     }
 
 
+
+
 }

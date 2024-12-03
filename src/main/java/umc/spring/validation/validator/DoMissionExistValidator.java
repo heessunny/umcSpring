@@ -33,12 +33,13 @@ public class DoMissionExistValidator implements ConstraintValidator<ExistDoMissi
 
 
 
-        if (!isValid) {
+        if (isValid) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(ErrorStatus.REGION_NOT_FOUND.toString()).addConstraintViolation();
+            context.buildConstraintViolationWithTemplate(ErrorStatus.MISSION_NOT_FOUND.toString())
+                    .addConstraintViolation();
         }
 
-        return isValid;
+        return !isValid;
 
 
     }

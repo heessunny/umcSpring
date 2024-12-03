@@ -17,6 +17,14 @@ public class DoMissionConverter {
                 .build();
     }
 
+    public static MissionResponseDTO.CompleteMissionResultDTO CompleteMissionResultDTO(DoMission doMission){
+        return MissionResponseDTO.CompleteMissionResultDTO.builder()
+                .doMissionId(doMission.getId())
+                .status(doMission.getStatus())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
+
 
 
 }

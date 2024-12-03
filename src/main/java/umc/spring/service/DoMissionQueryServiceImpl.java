@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.FoodCategoryHandler;
 import umc.spring.domain.Member;
@@ -55,6 +54,11 @@ public class DoMissionQueryServiceImpl implements DoMissionQueryService {
 
     }
 
+    @Override
+    public boolean existsProgressByMissionIdAndMemberId(Long missionId,Long memberId) {
+        return doMissionRepository.existsByMissionIdAndMemberIdAndStatus(missionId,memberId,MissionStatus.PROGRESS);
+    }
+
 
     @Override
     public Page<DoMission> findDoMissionBymember(Long userId, MissionStatus status) {
@@ -62,6 +66,19 @@ public class DoMissionQueryServiceImpl implements DoMissionQueryService {
         filteredMissions.forEach(mission -> System.out.println("progress Mission: " + mission));
 
         return filteredMissions;
+    }
+
+    @Override
+    public DoMission completeMission(Long MissionId, Long MemberId) {
+
+        System.out.println("MissionId: " + MissionId + ", MemberId: " + MemberId);
+
+        DoMission progressMission = doMissionRepository.findByMissionIdAndMemberId(MissionId, MemberId).get();
+
+        progressMission.setStatus(MissionStatus.COMPLETE);
+        doMissionRepository.save(progressMission);
+
+        return progressMission;
     }
 
 
