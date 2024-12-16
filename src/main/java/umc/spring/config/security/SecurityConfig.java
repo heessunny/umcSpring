@@ -20,6 +20,11 @@ public class SecurityConfig {
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll()
+                )
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true)
@@ -30,6 +35,8 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 );
+
+
 
         return http.build();
     }
