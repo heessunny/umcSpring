@@ -25,17 +25,12 @@ public class MemberConverter {
 
     }
 
-    public static Member toMember(MemberRequestDTO.JoinDTO request) {
-
+    public static Member toMember(MemberRequestDTO.JoinDto request) {
         Gender gender = null;
-
         switch (request.getGender()) {
-            case 1:
-                gender = Gender.Male;
-                break;
-            case 2:
-                gender = Gender.Female;
-                break;
+            case 1: gender = Gender.Male; break;
+            case 2: gender = Gender.Female; break;
+            case 3: gender = Gender.None; break;
         }
 
         LocalDate birthDate = LocalDate.of(
@@ -46,10 +41,13 @@ public class MemberConverter {
 
         return Member.builder()
                 .name(request.getName())
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .gender(gender)
                 .address(request.getAddress())
                 .specAddress(request.getAddress())
-                .gender(gender)
                 .birth(birthDate)
+                .role(request.getRole())
                 .categoryChoiceList(new ArrayList<>())
                 .build();
 

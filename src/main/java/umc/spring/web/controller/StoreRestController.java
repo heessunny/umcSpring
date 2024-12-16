@@ -26,7 +26,7 @@ import umc.spring.web.dto.StoreResponseDTO;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/stores/")
+@RequestMapping("/stores")
 public class StoreRestController {
 
     private final StoreCommandService storeCommandService;

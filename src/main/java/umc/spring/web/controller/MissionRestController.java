@@ -30,7 +30,7 @@ import umc.spring.web.dto.MissionResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/stores")
+@RequestMapping("/missions")
 public class MissionRestController {
     private final MissionQueryService missionQueryService;
 
